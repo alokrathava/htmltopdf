@@ -1,5 +1,8 @@
 <?php
-$html='
+$name = "Alok Rathava";
+$email = "alokrathava@gmail.com";
+$mobile = "9512334819";
+$html = '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,27 +36,27 @@ $html='
 			<td>Computer Science & Engg.</td>
 		</tr>
 		<tr>
-			<td>4</td>
-			<td>Prakash Maurya</td>
-			<td>Computer Science & Engg.</td>
+			<td>' . $mobile . '</td>
+			<td>' . $name . '</td>
+			<td>' . $email . '</td>
 		</tr>
 	</table>
 </body>
 </html>';
 
 
-
 require 'dompdf/autoload.inc.php';
+
 use Dompdf\Dompdf;
 
-$dompdf= new Dompdf();
+$dompdf = new Dompdf();
 
 $dompdf->loadHtml($html);
 
-$dompdf->setPaper('A4','portrait');
+$dompdf->setPaper('A4', 'portrait');
 
 $dompdf->render();
 
-$dompdf->stream("playerofcode",array("Attachment"=>0));
+$dompdf->stream("playerofcode", array("Attachment" => 0));
 
 ?>
